@@ -154,6 +154,7 @@ def hae():
     #kirjoitettu merkkijono
     alkukirjain = stock.capitalize()#alkukirjain muuttujaan tallennetaan toiminto,
     #joka muuttaa stock-muuttujan tekstin ensimmäisen kirjaimen isoksi kirjaimeksi.
+    
     stock = osake.get(stock)
     osakenimi.delete(0,END)
     Entry.insert(osakenimi,0,alkukirjain)
@@ -161,26 +162,29 @@ def hae():
     if kurssitieto.get() == 1 and osinkotieto.get() == 0: #jos valittuna on kurssi
         #tieto valintaruutu, avataan selain allaolevaan osoitteeseen. stock-muutuja
         #linkin lopussa on haettu osake.
+        
         webbrowser.open('https://www.kauppalehti.fi/porssi/porssikurssit/osake/'+stock)
     elif kurssitieto.get() == 0 and osinkotieto.get() == 1: #jos valittuna on
         #osinkotieto valintaruutu, avataan selain allaolevaan osoitteenseen.
+        
           webbrowser.open('https://www.is.fi/taloussanomat/osinkokalenteri/'+stock)
     elif kurssitieto.get () == 1 and osinkotieto.get() == 1: # jos valittuna on
         #molemmat valintaruudut, avataan selain kahteen allaolevaan osoitteeseen.
+        
         webbrowser.open('https://www.kauppalehti.fi/porssi/porssikurssit/osake/'+stock)
         webbrowser.open('https://www.is.fi/taloussanomat/osinkokalenteri/'+stock)
 
-def kryptoHaku():
+def kryptoHaku(): #funktio kryptovaluuttojen hakuun
     crypto = (Entry.get(kryptohaku))
     webbrowser.open('https://fi.investing.com/crypto/'+crypto)
 
-def kysymys():
+def kysymys(): #funktio, jokas suoritetaan kysymysmerkki nappia painettaessa.
     messagebox.showinfo('?','jos kirjoitat osakkeen nimen pienellä alkukirjaimella, niin ohjelmaa muuntaa sen ensin isoksi'
                         'koska osakkeiden nimet on kirjoitettu sanakirjaan isolla kirjaimella. Muunnon jälkeen paina uudestaan hakupainiketta')
     
 
     
-
+#Tkinter komponenttien määrittely alkaa.
 ikkuna = Tk()
 ikkuna.configure(background = 'azure4')
 
