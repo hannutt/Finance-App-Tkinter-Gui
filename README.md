@@ -4,7 +4,11 @@ pay dividends. At this moment you can search only companies, which are listed in
 Helsinki stock market.
 
 Program includes two checbox. If you type a stock name to the first input field and choose "kurssi" -checkbox and click
-"Hae kurssi/osinko" button you will get the stock price. Choosing a "osinko" -checkbox you get a stock divindends information. Choosing both checkboxes you will get a price and dividend info.
+"Hae kurssi/osinko" button, program take you to the Kauppalehti.fi/porssi/porssikurssi/osake/(*stock name, which you writed*) website, where you can see a stock price information.
+
+Choosing a "osinko" -checkbox, program take you to the is.fi/taloussanomat/osinkokalenteri/ (*stock name, which you writed*) website,
+where you can see dividends, if the company pays a dividend
 
 How the Crypto currency method works?
 Just type the currency name to the "Hae kryptovaluuttoja" -input field and click "Hae kryptoja" -button.
+Program take you to the /fi.investing.com/crypto/ (*cryptocurrency name which you writed*) website, where you can see a currency value.
