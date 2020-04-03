@@ -154,7 +154,6 @@ def hae():
     #kirjoitettu merkkijono
     alkukirjain = stock.capitalize()#alkukirjain muuttujaan tallennetaan toiminto,
     #joka muuttaa stock-muuttujan tekstin ensimmäisen kirjaimen isoksi kirjaimeksi.
-    
     stock = osake.get(stock)
     osakenimi.delete(0,END)
     Entry.insert(osakenimi,0,alkukirjain)
@@ -162,29 +161,26 @@ def hae():
     if kurssitieto.get() == 1 and osinkotieto.get() == 0: #jos valittuna on kurssi
         #tieto valintaruutu, avataan selain allaolevaan osoitteeseen. stock-muutuja
         #linkin lopussa on haettu osake.
-        
         webbrowser.open('https://www.kauppalehti.fi/porssi/porssikurssit/osake/'+stock)
     elif kurssitieto.get() == 0 and osinkotieto.get() == 1: #jos valittuna on
         #osinkotieto valintaruutu, avataan selain allaolevaan osoitteenseen.
-        
           webbrowser.open('https://www.is.fi/taloussanomat/osinkokalenteri/'+stock)
     elif kurssitieto.get () == 1 and osinkotieto.get() == 1: # jos valittuna on
         #molemmat valintaruudut, avataan selain kahteen allaolevaan osoitteeseen.
-        
         webbrowser.open('https://www.kauppalehti.fi/porssi/porssikurssit/osake/'+stock)
         webbrowser.open('https://www.is.fi/taloussanomat/osinkokalenteri/'+stock)
 
-def kryptoHaku(): #funktio kryptovaluuttojen hakuun
+def kryptoHaku():
     crypto = (Entry.get(kryptohaku))
     webbrowser.open('https://fi.investing.com/crypto/'+crypto)
 
-def kysymys(): #funktio, jokas suoritetaan kysymysmerkki nappia painettaessa.
+def kysymys():
     messagebox.showinfo('?','jos kirjoitat osakkeen nimen pienellä alkukirjaimella, niin ohjelmaa muuntaa sen ensin isoksi'
                         'koska osakkeiden nimet on kirjoitettu sanakirjaan isolla kirjaimella. Muunnon jälkeen paina uudestaan hakupainiketta')
     
 
     
-#Tkinter komponenttien määrittely alkaa.
+
 ikkuna = Tk()
 ikkuna.configure(background = 'azure4')
 
@@ -197,23 +193,23 @@ kryptokuva = kryptologo.subsample(3,3)
 ikkuna.title('Kurssihaku 1.0')
 frame1 = Frame(ikkuna, background = 'azure4')
 frame2 = Frame(ikkuna, background = 'azure4')
-ohjnimi = Label(ikkuna, text = 'Kurssi- ja osinkohaku', background = 'azure3', fg = 'white')
+ohjnimi = Label(ikkuna, text = 'Stock price and dividend search', background = 'azure4', fg = 'white')
 osakenimi = Entry(frame1, width = 15, relief = 'solid', background = 'gray94')
-kirjnimi = Label (ikkuna, text = 'Kirjoita osakkeen nimi kenttään', background = 'azure4')
-haetieto = Button(ikkuna, text = 'Hae kurssi/osinko', command = hae, image = dollarimerkki, compound = RIGHT, relief = 'groove')
+kirjnimi = Label (ikkuna, text = 'Enter the stock name in the field', background = 'azure3')
+haetieto = Button(ikkuna, text = 'Check price/dividend', command = hae, image = dollarimerkki, compound = RIGHT, relief = 'groove')
 
 kysymysmerkki = Button (frame1, text = '?', command = kysymys)
 kurssitieto = IntVar()
-kurssivalinta = Checkbutton(ikkuna, text = 'Kurssi', variable = kurssitieto, background = 'azure3')
+kurssivalinta = Checkbutton(ikkuna, text = 'Price', variable = kurssitieto, background = 'azure3')
 osinkotieto = IntVar()
-osinkovalinta = Checkbutton(ikkuna, text = 'Osinko', variable = osinkotieto, background = 'azure4')
+osinkovalinta = Checkbutton(ikkuna, text = 'Dividend', variable = osinkotieto, background = 'azure4')
 tyhja = Label(ikkuna, background = 'azure4')
 tyhja2 = Label(ikkuna, background = 'azure4')
 tyhja3 = Label(ikkuna, background = 'azure4')
-krypto = Label(ikkuna, text='Hae kryptovaluuttoja', background='azure3')
+krypto = Label(ikkuna, text='Crypto currency', background='azure3')
 kryptohaku = Entry(frame2, background = 'gray94', relief = 'solid')
-kryptonimi = Label(frame2, text = 'Valuutan nimi: ', background = 'azure3')
-kryptopainike = Button(ikkuna, text = 'Hae kryptoja', command = kryptoHaku, image = kryptokuva, compound = RIGHT)
+kryptonimi = Label(frame2, text = 'Currency name: ', background = 'azure3')
+kryptopainike = Button(ikkuna, text = 'Check value', command = kryptoHaku, image = kryptokuva, compound = RIGHT)
                     
 
 ohjnimi.pack()
