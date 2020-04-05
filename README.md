@@ -1,4 +1,5 @@
 # Stock-dividend and Crypto currency value search
+Put the KurssiHaku.png and KryptoHaku.png -files in the same folder with the The png-files are used as an icon in the program.
 With this program you can check stock prices & crypto currency values fast and also look how much companies
 pay dividends. At this moment you can search only companies, which are listed in
 Helsinki stock market.
