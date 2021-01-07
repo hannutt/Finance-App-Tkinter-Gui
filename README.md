@@ -1,4 +1,4 @@
-# Stock-dividend and Crypto currency value search
+# Stock, dividend, Crypto currency and stock indexes value search
 
 Put the KurssiHaku.png and KryptoHaku.png -files in the same folder with KurssihakuV2.py file. the The png-files are used as an icons in the program.
 
